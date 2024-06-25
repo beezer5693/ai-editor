@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import "../styles/globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI Editor",
-  description: "AI Editor to help you write better content",
+  title: "KeyQuill",
+  description: "KeyQuill helps write more SEO optimized content.",
 };
 
 export default function RootLayout({
@@ -32,8 +32,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <Toaster />
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

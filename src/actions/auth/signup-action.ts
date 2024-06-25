@@ -7,25 +7,19 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function signupAction(values: SignUpSchema) {
+  const supabase = createClient();
+
   const result = signUpSchema.safeParse(values);
 
   if (!result.success) {
     return { errors: result.error.format() };
   }
 
-  const supabase = createClient();
-
-  const { firstName, lastName, email, password } = values;
+  const { email, password } = values;
 
   const { error } = await supabase.auth.signUp({
     email,
     password,
-    options: {
-      data: {
-        first_name: firstName,
-        last_name: lastName,
-      },
-    },
   });
 
   if (error) throw error;

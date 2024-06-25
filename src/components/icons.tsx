@@ -1,8 +1,36 @@
 import React from "react";
+import { Loader2 } from "lucide-react";
+import Image from "next/image";
+import logoLight from "../../public/assets/logo-light.png";
+import logoDark from "../../public/assets/logo-dark.png";
 
 export const Icons = {
+  Logo: () => (
+    <>
+      <Image
+        className="hidden dark:flex"
+        src={logoLight}
+        height={25}
+        width={25}
+        alt="app logo"
+      />
+      <Image
+        className="flex dark:hidden"
+        src={logoDark}
+        height={25}
+        width={25}
+        alt="app logo"
+      />
+    </>
+  ),
   Google: (props: any) => (
-    <svg width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="20"
+      height="20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <g clipPath="url(#a)">
         <path
           d="M10 3.958c1.475 0 2.796.509 3.838 1.5l2.854-2.854C14.959.992 12.696 0 10 0a9.995 9.995 0 0 0-8.933 5.508l3.325 2.58c.787-2.371 3-4.13 5.608-4.13Z"
@@ -28,4 +56,5 @@ export const Icons = {
       </defs>
     </svg>
   ),
+  Spinner: (props: any) => <Loader2 {...props} />,
 };

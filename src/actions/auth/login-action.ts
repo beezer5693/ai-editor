@@ -7,13 +7,13 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function loginAction(values: LoginSchema) {
+  const supabase = createClient();
+
   const result = loginSchema.safeParse(values);
 
   if (!result.success) {
     return { errors: result.error.format() };
   }
-
-  const supabase = createClient();
 
   const { email, password } = values;
 

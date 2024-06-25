@@ -1,19 +1,5 @@
-import { FormType } from "@/lib/constants";
 import { UseFormReturn } from "react-hook-form";
 import { ZodFormattedError } from "zod";
-
-export function getFormTitle(formType: string) {
-  switch (formType) {
-    case FormType.Login:
-      return "Login to AI Editor";
-    case FormType.SignUp:
-      return "Sign up for AI Editor";
-    case FormType.ForgotPassword:
-      return "Forgot Password";
-    case FormType.ResetPassword:
-      return "Reset Password";
-  }
-}
 
 export function displayFormErrors(
   errors: ZodFormattedError<

@@ -1,15 +1,18 @@
-import { getFormTitle } from "@/lib/helpers/form-helpers";
+import { FormType, formTitles } from "@/lib/constants";
 
 type AuthFormHeaderProps = {
-  formType: string;
+  formType: FormType;
 };
 
 export default function AuthFormHeader({ formType }: AuthFormHeaderProps) {
-  const title = getFormTitle(formType);
+  const { title, subtitle } = formTitles[formType as FormType];
 
   return (
-    <div className="text-primary inline-block mb-4">
-      <h1 className="text-3xl font-medium">{title}</h1>
+    <div className="text-primary inline-block mb-9">
+      <h1 className="text-3xl font-medium mb-4">{title}</h1>
+      <p className="font-medium text-2xl text-[#878787] text-pretty">
+        {subtitle}
+      </p>
     </div>
   );
 }

@@ -11,13 +11,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 import { useLoginForm } from "@/hooks/use-login-form";
 import { usePasswordVisibility } from "@/hooks/use-password-visibility";
 import { displayFormErrors } from "@/lib/helpers/form-helpers";
 import { LoginSchema } from "@/lib/validation/auth";
-import { Loader2 } from "lucide-react";
 import Link from "next/link";
-import { useToast } from "@/components/ui/use-toast";
+import { Icons } from "@/components/icons";
 
 export default function AuthLoginForm() {
   const { form, handleSubmit, isSubmitting } = useLoginForm();
@@ -43,7 +43,7 @@ export default function AuthLoginForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <FormField
             control={form.control}
@@ -54,9 +54,10 @@ export default function AuthLoginForm() {
                   <Input
                     className={
                       form.getFieldState(field.name).error &&
-                      "border-destructive"
+                      "border-destructive focus:border-destructive"
                     }
                     placeholder="Enter your email address"
+                    disabled={isSubmitting}
                     {...field}
                   />
                 </FormControl>
@@ -76,10 +77,11 @@ export default function AuthLoginForm() {
                     <Input
                       className={
                         form.getFieldState(field.name).error &&
-                        "border-destructive"
+                        "border-destructive focus:border-destructive"
                       }
                       type={visible ? "text" : "password"}
                       placeholder="Enter your password"
+                      disabled={isSubmitting}
                       {...field}
                     />
                     <PasswordVisibilityToggle
@@ -92,19 +94,19 @@ export default function AuthLoginForm() {
               </FormItem>
             )}
           />
-          <div className="mt-3">
+          <div className="mt-4">
             <Link
               className="text-sm text-primary hover:underline font-medium"
               href="/forgot-password"
             >
-              Forgot password?
+              <span>Forgot password?</span>
             </Link>
           </div>
         </div>
         <div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <Icons.Spinner className="h-4 w-4 animate-spin" />
             ) : (
               "Login"
             )}
