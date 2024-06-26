@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function usePasswordVisibility() {
+export const usePasswordVisibility = () => {
   const [visible, setVisible] = useState(false);
 
   function toggleVisibility() {
@@ -8,4 +8,4 @@ export function usePasswordVisibility() {
   }
 
   return { visible, toggleVisibility };
-}
+};

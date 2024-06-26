@@ -1,17 +1,11 @@
 "use server";
 
 import { Route } from "@/lib/constants";
-import {
-  ResetPasswordSchema,
-  resetPasswordSchema,
-} from "@/lib/validation/auth";
+import { ResetPasswordSchema, resetPasswordSchema } from "@/lib/validation/auth";
 import { createClient } from "@/supabase/server";
 import { redirect } from "next/navigation";
 
-export async function resetPasswordAction(
-  values: ResetPasswordSchema,
-  code: string
-) {
+export const resetPasswordAction = async (values: ResetPasswordSchema, code: string) => {
   const supabase = createClient();
 
   const result = resetPasswordSchema.safeParse(values);
@@ -33,4 +27,4 @@ export async function resetPasswordAction(
   if (error) throw signOutError;
 
   redirect(Route.Login);
-}
+};

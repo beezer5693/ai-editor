@@ -15,7 +15,7 @@ export default function PasswordVisibilityToggle({
       onClick={toggleVisibility}
       className="absolute flex items-center transition-colors justify-center text-muted-foreground/30 hover:text-muted-foreground right-0 top-1/2 h-full w-9 -translate-y-1/2"
     >
-      {visible ? <IoEyeSharp /> : <IoEyeOffSharp />}
+      {visible ? <IoEyeSharp className="h-4 w-4" /> : <IoEyeOffSharp className="h-4 w-4" />}
     </div>
   );
 }

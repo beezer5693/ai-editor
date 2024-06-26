@@ -6,11 +6,7 @@ import PageLayout from "@/components/page-layout";
 import { FormType } from "@/lib/constants";
 import React from "react";
 
-export default function ResetPasswordPage({
-  searchParams,
-}: {
-  searchParams: { code: string };
-}) {
+export default function ResetPasswordPage({ searchParams }: { searchParams: { code: string } }) {
   return (
     <PageLayout>
       <AuthPageHeader />

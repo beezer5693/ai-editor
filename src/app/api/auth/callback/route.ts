@@ -1,16 +1,22 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { type CookieOptions, createServerClient } from "@supabase/ssr";
-import { Route } from "@/lib/constants";
+import { Cookies, Route } from "@/lib/constants";
+import { addYears } from "date-fns";
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  // if "next" is in param, use it as the redirect URL
-  const next = searchParams.get("next") ?? "/";
+  const cookieStore = cookies();
+  const provider = searchParams.get("provider");
+
+  if (provider) {
+    cookieStore.set(Cookies.PreferredSignInOption, provider, {
+      expires: addYears(new Date(), 1),
+    });
+  }
 
   if (code) {
-    const cookieStore = cookies();
     const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

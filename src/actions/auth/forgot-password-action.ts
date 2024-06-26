@@ -1,14 +1,11 @@
 "use server";
 
 import { Route } from "@/lib/constants";
-import {
-  ForgotPasswordSchema,
-  forgotPasswordSchema,
-} from "@/lib/validation/auth";
+import { ForgotPasswordSchema, forgotPasswordSchema } from "@/lib/validation/auth";
 import { createClient } from "@/supabase/server";
 import { headers } from "next/headers";
 
-export async function forgotPasswordAction(values: ForgotPasswordSchema) {
+export const forgotPasswordAction = async (values: ForgotPasswordSchema) => {
   const supabase = createClient();
 
   const result = forgotPasswordSchema.safeParse(values);
@@ -26,4 +23,4 @@ export async function forgotPasswordAction(values: ForgotPasswordSchema) {
   });
 
   if (error) throw error;
-}
+};

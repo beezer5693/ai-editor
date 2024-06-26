@@ -9,7 +9,7 @@ export const loginSchema = z.object({
   password: z.string().min(1, "Password is a required field"),
 });
 
-export type LoginSchema = z.infer<typeof loginSchema>;
+export interface LoginSchema extends z.infer<typeof loginSchema> {}
 
 export const signUpSchema = z.object({
   email: z
@@ -20,13 +20,10 @@ export const signUpSchema = z.object({
   password: z
     .string()
     .min(1, "Password is a required field")
-    .refine(
-      (value) => value.length >= 8,
-      "Password must be at least 8 characters"
-    ),
+    .refine((value) => value.length >= 8, "Password must be at least 8 characters"),
 });
 
-export type SignUpSchema = z.infer<typeof signUpSchema>;
+export interface SignUpSchema extends z.infer<typeof signUpSchema> {}
 
 export const forgotPasswordSchema = z.object({
   email: z
@@ -36,17 +33,14 @@ export const forgotPasswordSchema = z.object({
     .transform((value) => value.trim()),
 });
 
-export type ForgotPasswordSchema = z.infer<typeof forgotPasswordSchema>;
+export interface ForgotPasswordSchema extends z.infer<typeof forgotPasswordSchema> {}
 
 export const resetPasswordSchema = z
   .object({
     password: z
       .string()
       .min(1, "Password is a required field")
-      .refine(
-        (value) => value.length >= 8,
-        "Password must be at least 8 characters"
-      ),
+      .refine((value) => value.length >= 8, "Password must be at least 8 characters"),
     confirmPassword: z.string().min(1, "Confirm password is a required field"),
   })
   .refine((data) => data.password === data.confirmPassword, {
@@ -54,4 +48,4 @@ export const resetPasswordSchema = z
     path: ["confirmPassword"],
   });
 
-export type ResetPasswordSchema = z.infer<typeof resetPasswordSchema>;
+export interface ResetPasswordSchema extends z.infer<typeof resetPasswordSchema> {}

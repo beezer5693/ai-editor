@@ -20,10 +20,7 @@ export default function ForgotPasswordPage() {
         <AuthFormHeader formType={FormType.ForgotPassword} />
         <AuthForgotPasswordForm />
         <div className="text-center mt-5">
-          <Link
-            href="/login"
-            className="text-sm text-primary hover:underline font-medium"
-          >
+          <Link href="/login" className="text-sm text-primary hover:underline font-medium">
             <span>Back to Login</span>
           </Link>
         </div>
