@@ -1,4 +1,4 @@
-import { FormType } from "@/lib/constants";
+import { FormType } from "@/utils/constants";
 import Link from "next/link";
 import React from "react";
 

@@ -14,7 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { AuthProvider, Cookies, FormType } from "@/lib/constants";
+import { AuthProvider, Cookies, FormType } from "@/utils/constants";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 

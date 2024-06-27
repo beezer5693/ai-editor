@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { type CookieOptions, createServerClient } from "@supabase/ssr";
-import { Cookies, Route } from "@/lib/constants";
+import { Cookies, Route } from "@/utils/constants";
 import { addYears } from "date-fns";
 
 export async function GET(request: Request) {

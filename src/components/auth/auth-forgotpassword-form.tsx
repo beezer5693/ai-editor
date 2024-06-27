@@ -3,10 +3,19 @@
 import { forgotPasswordAction } from "@/actions/auth/forgot-password-action";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { displayFormErrors } from "@/lib/helpers/form-helpers";
-import { ForgotPasswordSchema, forgotPasswordSchema } from "@/lib/validation/auth";
+import { displayFormErrors } from "@/utils/helpers/form-helpers";
+import {
+  ForgotPasswordSchema,
+  forgotPasswordSchema,
+} from "@/utils/validation/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -87,7 +96,11 @@ export default function AuthForgotPasswordForm() {
             className="w-full active:scale-[0.98] text-secondary"
             disabled={isSubmitting || isSuccess}
           >
-            {isSubmitting ? <Icons.Spinner className="h-4 w-4 animate-spin" /> : "Submit"}
+            {isSubmitting ? (
+              <Icons.Spinner className="h-4 w-4 animate-spin" />
+            ) : (
+              "Submit"
+            )}
           </Button>
         </div>
       </form>

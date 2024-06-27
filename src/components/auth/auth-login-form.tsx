@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { usePasswordVisibility } from "@/hooks/use-password-visibility";
-import { displayFormErrors } from "@/lib/helpers/form-helpers";
-import { LoginSchema, loginSchema } from "@/lib/validation/auth";
+import { displayFormErrors } from "@/utils/helpers/form-helpers";
+import { LoginSchema, loginSchema } from "@/utils/validation/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";

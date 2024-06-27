@@ -4,11 +4,17 @@ import { signupAction } from "@/actions/auth/signup-action";
 import { Icons } from "@/components/icons";
 import PasswordVisibilityToggle from "@/components/password-visibility-toggle";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { usePasswordVisibility } from "@/hooks/use-password-visibility";
-import { displayFormErrors } from "@/lib/helpers/form-helpers";
-import { SignUpSchema, signUpSchema } from "@/lib/validation/auth";
+import { displayFormErrors } from "@/utils/helpers/form-helpers";
+import { SignUpSchema, signUpSchema } from "@/utils/validation/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
@@ -107,7 +113,11 @@ export default function AuthSignUpForm() {
             className="w-full active:scale-[0.98] text-secondary"
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Icons.Spinner className="h-4 w-4 animate-spin" /> : "Sign up"}
+            {isSubmitting ? (
+              <Icons.Spinner className="h-4 w-4 animate-spin" />
+            ) : (
+              "Sign up"
+            )}
           </Button>
         </div>
       </form>

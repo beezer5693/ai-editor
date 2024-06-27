@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthProvider } from "@/lib/constants";
+import { AuthProvider } from "@/utils/constants";
 import { createClient } from "@/supabase/client";
 import { Provider } from "@supabase/supabase-js";
 import React from "react";

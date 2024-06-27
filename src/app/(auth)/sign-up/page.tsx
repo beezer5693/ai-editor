@@ -14,7 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FormType } from "@/lib/constants";
+import { FormType } from "@/utils/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,7 +1,7 @@
 "use server";
 
-import { AuthProvider, Cookies, Route } from "@/lib/constants";
-import { SignUpSchema, signUpSchema } from "@/lib/validation/auth";
+import { AuthProvider, Cookies, Route } from "@/utils/constants";
+import { SignUpSchema, signUpSchema } from "@/utils/validation/auth";
 import { createClient } from "@/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";

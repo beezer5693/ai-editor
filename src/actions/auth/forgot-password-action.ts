@@ -1,7 +1,10 @@
 "use server";
 
-import { Route } from "@/lib/constants";
-import { ForgotPasswordSchema, forgotPasswordSchema } from "@/lib/validation/auth";
+import { Route } from "@/utils/constants";
+import {
+  ForgotPasswordSchema,
+  forgotPasswordSchema,
+} from "@/utils/validation/auth";
 import { createClient } from "@/supabase/server";
 import { headers } from "next/headers";
 

@@ -1,4 +1,4 @@
-import { FormType, formTitles } from "@/lib/constants";
+import { FormType, formTitles } from "@/utils/constants";
 
 type AuthFormHeaderProps = {
   formType: FormType;
