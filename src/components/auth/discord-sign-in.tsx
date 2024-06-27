@@ -7,9 +7,9 @@ import { createClient } from "@/supabase/client";
 import { Provider } from "@supabase/supabase-js";
 
 export default function DiscordSignIn() {
-  const handleSignIn = async () => {
-    const supabase = createClient();
+  const supabase = createClient();
 
+  const handleSignIn = async () => {
     const redirectTo = new URL("/api/auth/callback", window.location.origin);
     redirectTo.searchParams.set("provider", AuthProvider.Discord);
 
@@ -20,9 +20,13 @@ export default function DiscordSignIn() {
       },
     });
   };
+
   return (
-    <Button onClick={handleSignIn} className="w-full gap-2 active:scale-[0.98] text-secondary">
-      <Icons.Discord className="h-[22px] w-[22px]" />
+    <Button
+      onClick={handleSignIn}
+      className="w-full gap-2 active:scale-[0.98] text-secondary"
+    >
+      <Icons.Discord className="h-6 w-6" />
       <span>Continue with Discord</span>
     </Button>
   );

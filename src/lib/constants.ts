@@ -1,4 +1,5 @@
 import { Provider } from "@supabase/supabase-js";
+import { Slack } from "lucide-react";
 
 export enum Route {
   Root = "/",
@@ -18,18 +19,19 @@ export enum FormType {
 
 export const formTitles = {
   login: {
-    title: "Login to keyQuill.",
+    title: "Login to KeyQuill.",
     subtitle:
-      "Optimize your content, enhance writing quality, and boost visibility with tailored keywords.",
+      "Optimize your content, enhance writing quality, and boost visibility.",
   },
   "sign-up": {
     title: "Signup for KeyQuill.",
     subtitle:
-      "Optimize your content, enhance writing quality, and boost visibility with tailored keywords.",
+      "Optimize your content, enhance writing quality, and boost visibility.",
   },
   "forgot-password": {
     title: "Forgot your password.",
-    subtitle: "Enter your email address and we'll send you a link to reset your password.",
+    subtitle:
+      "Enter your email address and we'll send you a link to reset your password.",
   },
   "reset-password": {
     title: "Reset your password.",
@@ -42,8 +44,9 @@ export const Cookies = {
 };
 
 export const AuthProvider = {
+  Email: "email",
   Google: "google",
   Github: "github",
   Discord: "discord",
-  Email: "email",
+  Slack: "slack",
 };

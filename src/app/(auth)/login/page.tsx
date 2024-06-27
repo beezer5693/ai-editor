@@ -4,6 +4,7 @@ import AuthPageHeader from "@/components/auth/auth-page-header";
 import DiscordSignIn from "@/components/auth/discord-sign-in";
 import GithubSignIn from "@/components/auth/github-sign-in";
 import GoogleSignIn from "@/components/auth/google-sign-in";
+import SlackSignIn from "@/components/auth/slack-sign-in";
 import FormContainer from "@/components/form-container";
 import PageLayout from "@/components/page-layout";
 import TermsOfServiceAndPrivacyPolicy from "@/components/terms-privacy";
@@ -34,6 +35,7 @@ export default async function LoginPage() {
       moreSignInOptions = (
         <>
           <GithubSignIn />
+          <SlackSignIn />
           <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
             <AuthLoginForm />
@@ -46,6 +48,7 @@ export default async function LoginPage() {
       moreSignInOptions = (
         <>
           <GoogleSignIn />
+          <SlackSignIn />
           <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
             <AuthLoginForm />
@@ -59,6 +62,20 @@ export default async function LoginPage() {
         <>
           <GoogleSignIn />
           <GithubSignIn />
+          <SlackSignIn />
+          <div className="border-t-[1px] border-border pt-8">
+            <AuthLoginForm />
+          </div>
+        </>
+      );
+      break;
+    case AuthProvider.Slack:
+      preferredSignInOption = <SlackSignIn />;
+      moreSignInOptions = (
+        <>
+          <GoogleSignIn />
+          <GithubSignIn />
+          <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
             <AuthLoginForm />
           </div>
@@ -71,6 +88,7 @@ export default async function LoginPage() {
         <>
           <GoogleSignIn />
           <GithubSignIn />
+          <SlackSignIn />
           <DiscordSignIn />
         </>
       );
@@ -84,6 +102,7 @@ export default async function LoginPage() {
       );
       moreSignInOptions = (
         <>
+          <SlackSignIn />
           <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
             <AuthLoginForm />
@@ -98,7 +117,11 @@ export default async function LoginPage() {
       <FormContainer>
         <AuthFormHeader formType={FormType.Login} />
         {preferredSignInOption}
-        <Accordion type="single" collapsible className="border-t-[1px] pt-2 mt-6">
+        <Accordion
+          type="single"
+          collapsible
+          className="border-t-[1px] pt-2 mt-4"
+        >
           <AccordionItem value="item-1" className="border-0">
             <AccordionTrigger className="justify-center space-x-2 flex text-sm">
               <span>More options</span>

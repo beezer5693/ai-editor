@@ -7,9 +7,9 @@ import { createClient } from "@/supabase/client";
 import { Provider } from "@supabase/supabase-js";
 
 export default function GoogleSignIn() {
-  const handleSignIn = async () => {
-    const supabase = createClient();
+  const supabase = createClient();
 
+  const handleSignIn = async () => {
     const redirectTo = new URL("/api/auth/callback", window.location.origin);
     redirectTo.searchParams.set("provider", AuthProvider.Google);
 
@@ -22,7 +22,10 @@ export default function GoogleSignIn() {
   };
 
   return (
-    <Button onClick={handleSignIn} className="w-full gap-2 active:scale-[0.98] text-secondary">
+    <Button
+      onClick={handleSignIn}
+      className="w-full gap-2 active:scale-[0.98] text-secondary"
+    >
       <Icons.Google className="h-5 w-5" />
       <span>Continue with Google</span>
     </Button>

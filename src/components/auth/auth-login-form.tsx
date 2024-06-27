@@ -4,7 +4,13 @@ import { loginAction } from "@/actions/auth/login-action";
 import { Icons } from "@/components/icons";
 import PasswordVisibilityToggle from "@/components/password-visibility-toggle";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { usePasswordVisibility } from "@/hooks/use-password-visibility";
 import { displayFormErrors } from "@/lib/helpers/form-helpers";
@@ -110,13 +116,17 @@ export default function AuthLoginForm() {
             </Link>
           </div>
         </div>
-        <div>
+        <div className="pt-1">
           <Button
             type="submit"
             className="w-full active:scale-[0.98] text-secondary"
             disabled={isSubmitting}
           >
-            {isSubmitting ? <Icons.Spinner className="h-4 w-4 animate-spin" /> : "Login"}
+            {isSubmitting ? (
+              <Icons.Spinner className="h-4 w-4 animate-spin" />
+            ) : (
+              "Login"
+            )}
           </Button>
         </div>
       </form>
