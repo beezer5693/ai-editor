@@ -1,12 +1,11 @@
 import Link from "next/link";
-import React from "react";
 
 export default function TermsOfServiceAndPrivacyPolicy() {
   return (
-    <div>
-      <p className="text-muted-foreground/90 text-xs mt-6 text-pretty">
+    <div className="mt-6">
+      <p className="text-muted-foreground/90 text-xs text-pretty font-medium">
         By clicking continue, you acknowledge that you have read and agree to
-        KeyQuill&apos;s{" "}
+        Keyword&apos;s{" "}
         <Link href="/terms-of-service">
           <span className="underline">Terms of Service</span> and{" "}
         </Link>

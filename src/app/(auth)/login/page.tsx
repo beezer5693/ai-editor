@@ -113,7 +113,7 @@ export default async function LoginPage() {
 
   return (
     <PageLayout>
-      <AuthPageHeader formType={FormType.Login} />
+      <AuthPageHeader />
       <FormContainer>
         <AuthFormHeader formType={FormType.Login} />
         {preferredSignInOption}

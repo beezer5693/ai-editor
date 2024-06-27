@@ -2,8 +2,8 @@
 
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { AuthProvider } from "@/utils/constants";
 import { createClient } from "@/supabase/client";
+import { AuthProvider } from "@/utils/constants";
 import { Provider } from "@supabase/supabase-js";
 
 export default function GoogleSignIn() {
@@ -26,7 +26,7 @@ export default function GoogleSignIn() {
       onClick={handleSignIn}
       className="w-full gap-2 active:scale-[0.98] text-secondary"
     >
-      <Icons.Google className="h-5 w-5" />
+      <Icons.Google className="h-[21px] w-[21px]" />
       <span>Continue with Google</span>
     </Button>
   );

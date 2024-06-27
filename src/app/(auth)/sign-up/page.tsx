@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 export default function SignUpPage() {
   return (
     <PageLayout>
-      <AuthPageHeader formType={FormType.SignUp} />
+      <AuthPageHeader />
       <FormContainer>
-        <AuthFormHeader formType={FormType.SignUp} />
+        <AuthFormHeader formType={FormType.Signup} />
         <div className="flex flex-col space-y-2">
           <GoogleSignIn />
           <GithubSignIn />

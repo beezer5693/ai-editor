@@ -1,11 +1,10 @@
 "use client";
 
-import { AuthProvider } from "@/utils/constants";
-import { createClient } from "@/supabase/client";
-import { Provider } from "@supabase/supabase-js";
-import React from "react";
-import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import { createClient } from "@/supabase/client";
+import { AuthProvider } from "@/utils/constants";
+import { Provider } from "@supabase/supabase-js";
 
 export default function SlackSignIn() {
   const supabase = createClient();
@@ -25,7 +24,7 @@ export default function SlackSignIn() {
   return (
     <Button
       onClick={handleSignIn}
-      className="w-full gap-2 active:scale-[0.98] text-secondary"
+      className="w-full gap-2 active:scale-[0.98] fill-secondary"
     >
       <Icons.Slack className="h-6 w-6" />
       <span>Continue with Slack</span>

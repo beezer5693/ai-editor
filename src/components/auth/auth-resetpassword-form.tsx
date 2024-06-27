@@ -12,6 +12,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
 import { usePasswordVisibility } from "@/hooks/use-password-visibility";
 import { displayFormErrors } from "@/utils/helpers/form-helpers";
 import {
@@ -20,7 +21,6 @@ import {
 } from "@/utils/validation/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useToast } from "@/components/ui/use-toast";
 
 type AuthResetPasswordFormProps = {
   code: string;

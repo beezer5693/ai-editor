@@ -1,6 +1,5 @@
 import { FormType } from "@/utils/constants";
 import Link from "next/link";
-import React from "react";
 
 type ToggleFormProps = {
   formType: FormType;
@@ -8,12 +7,26 @@ type ToggleFormProps = {
 
 export default function ToggleForm({ formType }: ToggleFormProps) {
   return (
-    <div className="text-primary text-sm hover:underline font-medium">
-      <Link href={formType === FormType.Login ? "/sign-up" : "/login"}>
-        {formType === FormType.Login
-          ? "Don't have an account? Sign up"
-          : "Already have an account? Login"}
-      </Link>
+    <div className="text-sm font-medium mt-4 mb-10 max-w-max text-muted-foreground">
+      <p>
+        {formType === FormType.Login ? (
+          <>
+            New to Keyword?{" "}
+            <Link href="/sign-up" className="hover:underline text-primary">
+              Sign up for an account
+            </Link>
+            .
+          </>
+        ) : (
+          <>
+            Already have an account?{" "}
+            <Link href="/login" className="hover:underline text-primary">
+              Log in
+            </Link>
+            .
+          </>
+        )}
+      </p>
     </div>
   );
 }

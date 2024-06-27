@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { cn } from "@/utils/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
-import { GeistSans } from "geist/font/sans";
+import { cn } from "@/utils/utils";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "KeyQuill",
-  description: "KeyQuill helps write more SEO optimized content.",
+  title: "Keyword - Content Creation Companion",
+  description: "Keyword is your content creation companion.",
 };
 
 export default function RootLayout({
@@ -23,12 +22,12 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background dark:bg-muted/[2%] font-sans antialiased",
-          GeistSans.className
+          inter.className
         )}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

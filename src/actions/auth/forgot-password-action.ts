@@ -1,11 +1,11 @@
 "use server";
 
+import { createClient } from "@/supabase/server";
 import { Route } from "@/utils/constants";
 import {
   ForgotPasswordSchema,
   forgotPasswordSchema,
 } from "@/utils/validation/auth";
-import { createClient } from "@/supabase/server";
 import { headers } from "next/headers";
 
 export const forgotPasswordAction = async (values: ForgotPasswordSchema) => {

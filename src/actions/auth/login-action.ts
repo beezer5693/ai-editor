@@ -1,12 +1,12 @@
 "use server";
 
+import { createClient } from "@/supabase/server";
 import { AuthProvider, Cookies, Route } from "@/utils/constants";
 import { LoginSchema, loginSchema } from "@/utils/validation/auth";
-import { createClient } from "@/supabase/server";
+import { addYears } from "date-fns";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { addYears } from "date-fns";
 
 export const loginAction = async (values: LoginSchema) => {
   const supabase = createClient();

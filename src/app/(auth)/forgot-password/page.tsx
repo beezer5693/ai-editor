@@ -1,12 +1,11 @@
-import React from "react";
-import PageLayout from "@/components/page-layout";
+import AuthForgotPasswordForm from "@/components/auth/auth-forgotpassword-form";
+import AuthFormHeader from "@/components/auth/auth-form-header";
 import AuthPageHeader from "@/components/auth/auth-page-header";
 import FormContainer from "@/components/form-container";
-import AuthFormHeader from "@/components/auth/auth-form-header";
+import PageLayout from "@/components/page-layout";
 import { FormType } from "@/utils/constants";
-import AuthForgotPasswordForm from "@/components/auth/auth-forgotpassword-form";
-import Link from "next/link";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Forgot Password | Keyword",

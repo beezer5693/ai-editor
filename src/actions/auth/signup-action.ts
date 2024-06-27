@@ -1,12 +1,12 @@
 "use server";
 
+import { createClient } from "@/supabase/server";
 import { AuthProvider, Cookies, Route } from "@/utils/constants";
 import { SignUpSchema, signUpSchema } from "@/utils/validation/auth";
-import { createClient } from "@/supabase/server";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 import { addYears } from "date-fns";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export const signupAction = async (values: SignUpSchema) => {
   const supabase = createClient();
