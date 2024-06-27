@@ -1,9 +1,8 @@
 "use client";
 
 import { resetPasswordAction } from "@/actions/auth/reset-password-action";
-import { Icons } from "@/components/icons";
+import SubmitButton from "@/components/auth/submit-button";
 import PasswordVisibilityToggle from "@/components/password-visibility-toggle";
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -14,23 +13,24 @@ import {
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { usePasswordVisibility } from "@/hooks/use-password-visibility";
+import { FormType } from "@/utils/constants";
 import { displayFormErrors } from "@/utils/helpers/form-helpers";
 import {
   ResetPasswordSchema,
   resetPasswordSchema,
 } from "@/utils/validation/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
 
 type AuthResetPasswordFormProps = {
+  formType: FormType;
   code: string;
 };
 
 export default function AuthResetPasswordForm({
+  formType,
   code,
 }: AuthResetPasswordFormProps) {
-  const { visible, toggleVisibility } = usePasswordVisibility();
-
   const form = useForm<ResetPasswordSchema>({
     resolver: zodResolver(resetPasswordSchema),
     defaultValues: {
@@ -39,12 +39,9 @@ export default function AuthResetPasswordForm({
     },
   });
 
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = form;
-
   const { toast } = useToast();
+  const { isSubmitting } = useFormState(form);
+  const { visible, toggleVisibility } = usePasswordVisibility();
 
   const onSubmit = async (values: ResetPasswordSchema) => {
     try {
@@ -69,7 +66,7 @@ export default function AuthResetPasswordForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <FormField
             control={form.control}
@@ -129,17 +126,7 @@ export default function AuthResetPasswordForm({
           />
         </div>
         <div>
-          <Button
-            type="submit"
-            className="w-full active:scale-[0.98] text-secondary"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <Icons.Spinner className="h-4 w-4 animate-spin" />
-            ) : (
-              "Reset password"
-            )}
-          </Button>
+          <SubmitButton formType={formType} isSubmitting={isSubmitting} />
         </div>
       </form>
     </Form>

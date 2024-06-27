@@ -8,6 +8,7 @@ import SlackSignIn from "@/components/auth/slack-sign-in";
 import FormContainer from "@/components/form-container";
 import PageLayout from "@/components/page-layout";
 import TermsOfServiceAndPrivacyPolicy from "@/components/terms-privacy";
+import ToggleForm from "@/components/toggle-form";
 import {
   Accordion,
   AccordionContent,
@@ -45,13 +46,14 @@ export default function SignUpPage() {
                 <SlackSignIn />
                 <DiscordSignIn />
                 <div className="border-t-[1px] border-border pt-8">
-                  <AuthSignUpForm />
+                  <AuthSignUpForm formType={FormType.Signup} />
                 </div>
               </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
         <TermsOfServiceAndPrivacyPolicy />
+        <ToggleForm formType={FormType.Signup} />
       </FormContainer>
     </PageLayout>
   );

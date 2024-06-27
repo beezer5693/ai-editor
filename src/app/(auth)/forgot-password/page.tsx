@@ -17,7 +17,7 @@ export default function ForgotPasswordPage() {
       <AuthPageHeader />
       <FormContainer>
         <AuthFormHeader formType={FormType.ForgotPassword} />
-        <AuthForgotPasswordForm />
+        <AuthForgotPasswordForm formType={FormType.ForgotPassword} />
         <div className="text-center mt-5">
           <Link
             href="/login"

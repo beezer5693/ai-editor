@@ -20,7 +20,10 @@ export default function ResetPasswordPage({
       <AuthPageHeader />
       <FormContainer>
         <AuthFormHeader formType={FormType.ResetPassword} />
-        <AuthResetPasswordForm code={searchParams.code} />
+        <AuthResetPasswordForm
+          formType={FormType.ResetPassword}
+          code={searchParams.code}
+        />
       </FormContainer>
     </PageLayout>
   );

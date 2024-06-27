@@ -1,7 +1,7 @@
-import { NextResponse, type NextRequest } from "next/server";
 import { updateSession } from "@/supabase/middleware";
 import { createClient } from "@/supabase/server";
 import { Route } from "@/utils/constants";
+import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
   const response = await updateSession(request);

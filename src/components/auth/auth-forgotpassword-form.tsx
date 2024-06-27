@@ -1,8 +1,7 @@
 "use client";
 
 import { forgotPasswordAction } from "@/actions/auth/forgot-password-action";
-import { Icons } from "@/components/icons";
-import { Button } from "@/components/ui/button";
+import SubmitButton from "@/components/auth/submit-button";
 import {
   Form,
   FormControl,
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
+import { FormType } from "@/utils/constants";
 import { displayFormErrors } from "@/utils/helpers/form-helpers";
 import {
   ForgotPasswordSchema,
@@ -19,11 +19,17 @@ import {
 } from "@/utils/validation/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
 
-export default function AuthForgotPasswordForm() {
+type AuthForgotPasswordFormProps = {
+  formType: FormType;
+};
+
+export default function AuthForgotPasswordForm({
+  formType,
+}: AuthForgotPasswordFormProps) {
   // Once form has been submitted successfully, disable input field and button
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmissionSuccessful, setIsSubmissionSuccessful] = useState(false);
 
   const form = useForm<ForgotPasswordSchema>({
     resolver: zodResolver(forgotPasswordSchema),
@@ -32,12 +38,8 @@ export default function AuthForgotPasswordForm() {
     },
   });
 
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = form;
-
   const { toast } = useToast();
+  const { isSubmitting } = useFormState(form);
 
   const onSubmit = async (values: ForgotPasswordSchema) => {
     try {
@@ -53,7 +55,7 @@ export default function AuthForgotPasswordForm() {
         description: "We've sent you a link to reset your password.",
       });
 
-      setIsSuccess(true);
+      setIsSubmissionSuccessful(true);
 
       form.reset();
     } catch (error: any) {
@@ -67,7 +69,7 @@ export default function AuthForgotPasswordForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <FormField
             control={form.control}
@@ -81,7 +83,7 @@ export default function AuthForgotPasswordForm() {
                       "border-destructive focus:border-destructive"
                     }
                     placeholder="Enter your email address"
-                    disabled={isSubmitting || isSuccess}
+                    disabled={isSubmitting || isSubmissionSuccessful}
                     {...field}
                   />
                 </FormControl>
@@ -91,17 +93,7 @@ export default function AuthForgotPasswordForm() {
           />
         </div>
         <div>
-          <Button
-            type="submit"
-            className="w-full active:scale-[0.98] text-secondary"
-            disabled={isSubmitting || isSuccess}
-          >
-            {isSubmitting ? (
-              <Icons.Spinner className="h-4 w-4 animate-spin" />
-            ) : (
-              "Submit"
-            )}
-          </Button>
+          <SubmitButton formType={formType} isSubmitting={isSubmitting} />
         </div>
       </form>
     </Form>

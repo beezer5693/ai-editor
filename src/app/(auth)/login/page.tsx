@@ -8,6 +8,7 @@ import SlackSignIn from "@/components/auth/slack-sign-in";
 import FormContainer from "@/components/form-container";
 import PageLayout from "@/components/page-layout";
 import TermsOfServiceAndPrivacyPolicy from "@/components/terms-privacy";
+import ToggleForm from "@/components/toggle-form";
 import {
   Accordion,
   AccordionContent,
@@ -38,7 +39,7 @@ export default async function LoginPage() {
           <SlackSignIn />
           <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm />
+            <AuthLoginForm formType={FormType.Login} />
           </div>
         </>
       );
@@ -51,7 +52,7 @@ export default async function LoginPage() {
           <SlackSignIn />
           <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm />
+            <AuthLoginForm formType={FormType.Login} />
           </div>
         </>
       );
@@ -64,7 +65,7 @@ export default async function LoginPage() {
           <GithubSignIn />
           <SlackSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm />
+            <AuthLoginForm formType={FormType.Login} />
           </div>
         </>
       );
@@ -77,13 +78,13 @@ export default async function LoginPage() {
           <GithubSignIn />
           <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm />
+            <AuthLoginForm formType={FormType.Login} />
           </div>
         </>
       );
       break;
     case AuthProvider.Email:
-      preferredSignInOption = <AuthLoginForm />;
+      preferredSignInOption = <AuthLoginForm formType={FormType.Login} />;
       moreSignInOptions = (
         <>
           <GoogleSignIn />
@@ -105,7 +106,7 @@ export default async function LoginPage() {
           <SlackSignIn />
           <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm />
+            <AuthLoginForm formType={FormType.Login} />
           </div>
         </>
       );
@@ -132,6 +133,7 @@ export default async function LoginPage() {
           </AccordionItem>
         </Accordion>
         <TermsOfServiceAndPrivacyPolicy />
+        <ToggleForm formType={FormType.Login} />
       </FormContainer>
     </PageLayout>
   );

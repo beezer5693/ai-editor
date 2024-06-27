@@ -1,9 +1,8 @@
 "use client";
 
 import { signupAction } from "@/actions/auth/signup-action";
-import { Icons } from "@/components/icons";
+import SubmitButton from "@/components/auth/submit-button";
 import PasswordVisibilityToggle from "@/components/password-visibility-toggle";
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -14,14 +13,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { usePasswordVisibility } from "@/hooks/use-password-visibility";
+import { FormType } from "@/utils/constants";
 import { displayFormErrors } from "@/utils/helpers/form-helpers";
 import { SignUpSchema, signUpSchema } from "@/utils/validation/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
 
-export default function AuthSignUpForm() {
-  const { visible, toggleVisibility } = usePasswordVisibility();
+type SignUpFormProps = {
+  formType: FormType;
+};
 
+export default function AuthSignUpForm({ formType }: SignUpFormProps) {
   const form = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -30,12 +32,9 @@ export default function AuthSignUpForm() {
     },
   });
 
-  const {
-    handleSubmit,
-    formState: { isSubmitting },
-  } = form;
-
   const { toast } = useToast();
+  const { isSubmitting } = useFormState(form);
+  const { visible, toggleVisibility } = usePasswordVisibility();
 
   const onSubmit = async (values: SignUpSchema) => {
     try {
@@ -55,7 +54,7 @@ export default function AuthSignUpForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <div>
           <FormField
             control={form.control}
@@ -68,7 +67,7 @@ export default function AuthSignUpForm() {
                       form.getFieldState(field.name).error &&
                       "border-destructive focus:border-destructive"
                     }
-                    placeholder="Enter your email address"
+                    placeholder="name@email.com"
                     disabled={isSubmitting}
                     {...field}
                   />
@@ -92,7 +91,7 @@ export default function AuthSignUpForm() {
                         "border-destructive focus:border-destructive"
                       }
                       type={visible ? "text" : "password"}
-                      placeholder="Create a password"
+                      placeholder="At least 8 characters"
                       disabled={isSubmitting}
                       {...field}
                     />
@@ -108,17 +107,7 @@ export default function AuthSignUpForm() {
           />
         </div>
         <div>
-          <Button
-            type="submit"
-            className="w-full active:scale-[0.98] text-secondary"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <Icons.Spinner className="h-4 w-4 animate-spin" />
-            ) : (
-              "Sign up"
-            )}
-          </Button>
+          <SubmitButton formType={formType} isSubmitting={isSubmitting} />
         </div>
       </form>
     </Form>

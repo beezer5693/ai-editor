@@ -1,4 +1,4 @@
-import { FormType } from "@/utils/constants";
+import { FormType, Route } from "@/utils/constants";
 import Link from "next/link";
 
 type ToggleFormProps = {
@@ -7,20 +7,20 @@ type ToggleFormProps = {
 
 export default function ToggleForm({ formType }: ToggleFormProps) {
   return (
-    <div className="text-sm font-medium mt-4 mb-10 max-w-max text-muted-foreground">
+    <div className="text-[.85rem] font-medium mt-6 text-center text-muted-foreground">
       <p>
         {formType === FormType.Login ? (
           <>
-            New to Keyword?{" "}
-            <Link href="/sign-up" className="hover:underline text-primary">
-              Sign up for an account
+            Don&apos;t have an account?{" "}
+            <Link href={Route.Signup} className="underline text-primary">
+              Sign up
             </Link>
             .
           </>
         ) : (
           <>
             Already have an account?{" "}
-            <Link href="/login" className="hover:underline text-primary">
+            <Link href={Route.Login} className="underline text-primary">
               Log in
             </Link>
             .
