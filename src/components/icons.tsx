@@ -1,10 +1,9 @@
-import React from "react";
 import { Loader2 } from "lucide-react";
-import { FaDiscord, FaGithub, FaGoogle, FaSlack } from "react-icons/fa6";
-import { BsGoogle } from "react-icons/bs";
 import Image from "next/image";
-import logoLight from "../../public/assets/logo-light.png";
+import { BsGoogle } from "react-icons/bs";
+import { FaDiscord, FaGithub, FaSlack } from "react-icons/fa6";
 import logoDark from "../../public/assets/logo-dark.png";
+import logoLight from "../../public/assets/logo-light.png";
 
 export const Icons = {
   Logo: () => (
