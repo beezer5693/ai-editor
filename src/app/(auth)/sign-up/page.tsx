@@ -18,7 +18,7 @@ import { FormType } from "@/utils/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Signup | KeyQuill",
+  title: "Signup | Keyword",
 };
 
 export default function SignUpPage() {

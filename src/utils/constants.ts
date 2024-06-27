@@ -1,6 +1,3 @@
-import { Provider } from "@supabase/supabase-js";
-import { Slack } from "lucide-react";
-
 export enum Route {
   Root = "/",
   Login = "/login",
@@ -19,12 +16,12 @@ export enum FormType {
 
 export const formTitles = {
   login: {
-    title: "Login to KeyQuill.",
+    title: "Login to Keyword.",
     subtitle:
       "Optimize your content, enhance writing quality, and boost visibility.",
   },
   "sign-up": {
-    title: "Signup for KeyQuill.",
+    title: "Signup for Keyword.",
     subtitle:
       "Optimize your content, enhance writing quality, and boost visibility.",
   },

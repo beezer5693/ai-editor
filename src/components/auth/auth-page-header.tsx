@@ -13,7 +13,7 @@ export default function AuthPageHeader({ formType }: AuthPageHeaderProps) {
       <Link href="/" className="flex items-center gap-2 text-primary">
         <Icons.Logo />
         <p className="tracking-wider font-medium text-sm text-primary">
-          KeyQuill
+          Keyword
         </p>
       </Link>
       {formType && <ToggleForm formType={formType} />}

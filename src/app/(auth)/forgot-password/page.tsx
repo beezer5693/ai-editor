@@ -9,7 +9,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Forgot Password | KeyQuill",
+  title: "Forgot Password | Keyword",
 };
 
 export default function ForgotPasswordPage() {
