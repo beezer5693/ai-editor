@@ -5,11 +5,16 @@ import { Button } from "@/components/ui/button";
 import { createClient } from "@/supabase/client";
 import { AuthProvider } from "@/utils/constants";
 import { Provider } from "@supabase/supabase-js";
+import { useState } from "react";
 
 const GoogleSignIn = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const supabase = createClient();
 
   const handleSignIn = async () => {
+    setIsLoading(true);
+
     const redirectTo = new URL("/api/auth/callback", window.location.origin);
     redirectTo.searchParams.set("provider", AuthProvider.Google);
 
@@ -26,8 +31,14 @@ const GoogleSignIn = () => {
       onClick={handleSignIn}
       className="w-full gap-2 active:scale-[0.98] text-secondary"
     >
-      <Icons.Google className="h-[21px] w-[21px]" />
-      <span>Continue with Google</span>
+      {isLoading ? (
+        <Icons.Spinner className="h-4 w-4 animate-spin" />
+      ) : (
+        <>
+          <Icons.Google className="h-[21px] w-[21px]" />
+          <span>Continue with Google</span>
+        </>
+      )}
     </Button>
   );
 };

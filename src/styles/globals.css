@@ -73,7 +73,7 @@ textarea:-webkit-autofill:focus {
 }
 
 .tiptap p.is-editor-empty:first-child::before {
-  @apply text-sm text-muted-foreground/65 h-0 float-left cursor-none content-[attr(data-placeholder)];
+  @apply text-sm text-muted-foreground/75 h-0 float-left cursor-none content-[attr(data-placeholder)];
 }
 
 @layer base {

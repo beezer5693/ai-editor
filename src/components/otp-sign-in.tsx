@@ -112,7 +112,11 @@ const OtpSignIn = () => {
           />
         </div>
         <div className="pt-1">
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
+          <Button
+            type="submit"
+            className="w-full active:scale-[0.98] text-secondary"
+            disabled={isSubmitting}
+          >
             {isSubmitting ? (
               <Icons.Spinner className="h-4 w-4 animate-spin" />
             ) : (
