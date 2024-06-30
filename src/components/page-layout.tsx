@@ -1,9 +1,11 @@
 import { PropsWithChildren } from "react";
 
-export default function PageLayout({ children }: PropsWithChildren) {
+const PageLayout = ({ children }: PropsWithChildren) => {
   return (
-    <main className="min-h-screen relative flex flex-col items-center justify-center overflow-hidden p-6 md:p-0">
+    <main className="h-screen relative flex flex-col items-center justify-center overflow-hidden p-5">
       {children}
     </main>
   );
-}
+};
+
+export default PageLayout;

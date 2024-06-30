@@ -6,15 +6,15 @@ import { createClient } from "@/supabase/client";
 import { AuthProvider } from "@/utils/constants";
 import { Provider } from "@supabase/supabase-js";
 
-export default function DiscordSignIn() {
+const SlackSignIn = () => {
   const supabase = createClient();
 
   const handleSignIn = async () => {
     const redirectTo = new URL("/api/auth/callback", window.location.origin);
-    redirectTo.searchParams.set("provider", AuthProvider.Discord);
+    redirectTo.searchParams.set("provider", AuthProvider.Slack);
 
     await supabase.auth.signInWithOAuth({
-      provider: AuthProvider.Discord as Provider,
+      provider: AuthProvider.Slack as Provider,
       options: {
         redirectTo: redirectTo.toString(),
       },
@@ -26,8 +26,10 @@ export default function DiscordSignIn() {
       onClick={handleSignIn}
       className="w-full gap-2 active:scale-[0.98] fill-secondary"
     >
-      <Icons.Discord className="h-6 w-6" />
-      <span>Continue with Discord</span>
+      <Icons.Slack className="h-6 w-6" />
+      <span>Continue with Slack</span>
     </Button>
   );
-}
+};
+
+export default SlackSignIn;

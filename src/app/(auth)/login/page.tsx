@@ -1,12 +1,11 @@
-import AuthFormHeader from "@/components/auth/auth-form-header";
-import AuthLoginForm from "@/components/auth/auth-login-form";
-import AuthPageHeader from "@/components/auth/auth-page-header";
-import DiscordSignIn from "@/components/auth/discord-sign-in";
-import GithubSignIn from "@/components/auth/github-sign-in";
-import GoogleSignIn from "@/components/auth/google-sign-in";
-import SlackSignIn from "@/components/auth/slack-sign-in";
+import AuthFormHeader from "@/components/auth-form-header";
+import AuthPageHeader from "@/components/auth-page-header";
 import FormContainer from "@/components/form-container";
+import GithubSignIn from "@/components/github-sign-in";
+import GoogleSignIn from "@/components/google-sign-in";
+import OtpSignIn from "@/components/otp-sign-in";
 import PageLayout from "@/components/page-layout";
+import SlackSignIn from "@/components/slack-sign-in";
 import TermsOfServiceAndPrivacyPolicy from "@/components/terms-privacy";
 import ToggleForm from "@/components/toggle-form";
 import {
@@ -37,9 +36,8 @@ export default async function LoginPage() {
         <>
           <GithubSignIn />
           <SlackSignIn />
-          <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm formType={FormType.Login} />
+            <OtpSignIn />
           </div>
         </>
       );
@@ -50,22 +48,8 @@ export default async function LoginPage() {
         <>
           <GoogleSignIn />
           <SlackSignIn />
-          <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm formType={FormType.Login} />
-          </div>
-        </>
-      );
-      break;
-    case AuthProvider.Discord:
-      preferredSignInOption = <DiscordSignIn />;
-      moreSignInOptions = (
-        <>
-          <GoogleSignIn />
-          <GithubSignIn />
-          <SlackSignIn />
-          <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm formType={FormType.Login} />
+            <OtpSignIn />
           </div>
         </>
       );
@@ -76,21 +60,19 @@ export default async function LoginPage() {
         <>
           <GoogleSignIn />
           <GithubSignIn />
-          <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm formType={FormType.Login} />
+            <OtpSignIn />
           </div>
         </>
       );
       break;
-    case AuthProvider.Email:
-      preferredSignInOption = <AuthLoginForm formType={FormType.Login} />;
+    case AuthProvider.Otp:
+      preferredSignInOption = <OtpSignIn />;
       moreSignInOptions = (
         <>
           <GoogleSignIn />
           <GithubSignIn />
           <SlackSignIn />
-          <DiscordSignIn />
         </>
       );
       break;
@@ -104,9 +86,8 @@ export default async function LoginPage() {
       moreSignInOptions = (
         <>
           <SlackSignIn />
-          <DiscordSignIn />
           <div className="border-t-[1px] border-border pt-8">
-            <AuthLoginForm formType={FormType.Login} />
+            <OtpSignIn />
           </div>
         </>
       );

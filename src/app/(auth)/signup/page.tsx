@@ -1,12 +1,11 @@
-import AuthFormHeader from "@/components/auth/auth-form-header";
-import AuthPageHeader from "@/components/auth/auth-page-header";
-import AuthSignUpForm from "@/components/auth/auth-signup-form";
-import DiscordSignIn from "@/components/auth/discord-sign-in";
-import GithubSignIn from "@/components/auth/github-sign-in";
-import GoogleSignIn from "@/components/auth/google-sign-in";
-import SlackSignIn from "@/components/auth/slack-sign-in";
+import AuthFormHeader from "@/components/auth-form-header";
+import AuthPageHeader from "@/components/auth-page-header";
 import FormContainer from "@/components/form-container";
+import GithubSignIn from "@/components/github-sign-in";
+import GoogleSignIn from "@/components/google-sign-in";
+import OtpSignIn from "@/components/otp-sign-in";
 import PageLayout from "@/components/page-layout";
+import SlackSignIn from "@/components/slack-sign-in";
 import TermsOfServiceAndPrivacyPolicy from "@/components/terms-privacy";
 import ToggleForm from "@/components/toggle-form";
 import {
@@ -44,9 +43,8 @@ export default function SignUpPage() {
             <AccordionContent className="mt-4">
               <div className="flex flex-col space-y-4">
                 <SlackSignIn />
-                <DiscordSignIn />
                 <div className="border-t-[1px] border-border pt-8">
-                  <AuthSignUpForm formType={FormType.Signup} />
+                  <OtpSignIn />
                 </div>
               </div>
             </AccordionContent>

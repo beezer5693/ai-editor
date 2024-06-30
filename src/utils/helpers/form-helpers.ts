@@ -1,7 +1,7 @@
 import { UseFormReturn } from "react-hook-form";
 import { ZodFormattedError } from "zod";
 
-export function displayFormErrors(
+export const displayFormErrors = (
   errors: ZodFormattedError<
     {
       firstName: string;
@@ -12,7 +12,7 @@ export function displayFormErrors(
     string
   >,
   form: UseFormReturn<any, any, undefined>
-) {
+) => {
   if (errors.firstName) {
     form.setError("firstName", {
       type: "server",
@@ -37,4 +37,4 @@ export function displayFormErrors(
       message: `${errors.password._errors[0]}`,
     });
   }
-}
+};
