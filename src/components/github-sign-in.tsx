@@ -3,7 +3,7 @@
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/supabase/client";
-import { AuthProvider } from "@/utils/constants";
+import { AuthProvider } from "@/lib/constants";
 import { Provider } from "@supabase/supabase-js";
 import { useState } from "react";
 
@@ -35,7 +35,7 @@ const GithubSignIn = () => {
         <Icons.Spinner className="h-4 w-4 animate-spin" />
       ) : (
         <>
-          <Icons.Github className="h-6 w-6" />
+          <Icons.Github className="h-5 w-5" />
           <span>Continue with Github</span>
         </>
       )}

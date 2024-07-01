@@ -1,16 +1,16 @@
 "use client";
 
 import Placeholder from "@tiptap/extension-placeholder";
-import { EditorContent, JSONContent, useEditor } from "@tiptap/react";
+import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Toolbar from "./toolbar";
 
 type EditorProps = {
-  onChange: (richText: JSONContent) => void;
+  onChange: (richText: string) => void;
 };
 
 const Editor = ({ onChange }: EditorProps) => {
-  const handleChange = (richText: JSONContent) => {
+  const handleChange = (richText: string) => {
     onChange(richText);
   };
 
@@ -21,7 +21,9 @@ const Editor = ({ onChange }: EditorProps) => {
           levels: [1, 2, 3],
         },
       }),
-      Placeholder.configure({ placeholder: "Write something..." }),
+      Placeholder.configure({
+        placeholder: "Copy and paste your article here...",
+      }),
     ],
     content: "",
     editorProps: {
@@ -30,16 +32,16 @@ const Editor = ({ onChange }: EditorProps) => {
       },
     },
     onUpdate: ({ editor }) => {
-      handleChange(editor.getJSON());
+      handleChange(editor.getHTML());
     },
   });
 
   return (
-    <div className="w-full md:max-w-[55%]">
-      <div className="border-x border-t p-3">
+    <div className="w-full md:max-w-[55%] border rounded-lg">
+      <div className="border-b p-3">
         {editor && <Toolbar editor={editor} />}
       </div>
-      <div className="border p-6">
+      <div className="p-6">
         <EditorContent style={{ whiteSpace: "pre-line" }} editor={editor} />
       </div>
     </div>

@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/supabase/server";
-import { Route } from "@/utils/constants";
+import { Route } from "@/lib/constants";
 import { redirect } from "next/navigation";
 
 export const signOutAction = async () => {

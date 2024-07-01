@@ -2,12 +2,16 @@ export enum Route {
   Root = "/",
   Login = "/login",
   Signup = "/signup",
+  ForgotPassword = "/forgot-password",
+  ResetPassword = "/reset-password",
   Dashboard = "/dashboard",
 }
 
 export enum FormType {
   Login = "login",
-  Signup = "signup",
+  SignUp = "signup",
+  ForgotPassword = "forgot-password",
+  ResetPassword = "reset-password",
 }
 
 export const Cookies = {
@@ -15,9 +19,7 @@ export const Cookies = {
 };
 
 export const AuthProvider = {
-  Otp: "otp",
   Google: "google",
   Github: "github",
-  Discord: "discord",
   Slack: "slack",
 };

@@ -13,18 +13,6 @@ export const displayFormErrors = (
   >,
   form: UseFormReturn<any, any, undefined>
 ) => {
-  if (errors.firstName) {
-    form.setError("firstName", {
-      type: "server",
-      message: `${errors.firstName._errors[0]}`,
-    });
-  }
-  if (errors.lastName) {
-    form.setError("lastName", {
-      type: "server",
-      message: `${errors.lastName._errors[0]}`,
-    });
-  }
   if (errors.email) {
     form.setError("email", {
       type: "server",

@@ -1,4 +1,4 @@
-import { Cookies, Route } from "@/utils/constants";
+import { Cookies, Route } from "@/lib/constants";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { addYears } from "date-fns";
 import { cookies } from "next/headers";

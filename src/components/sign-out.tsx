@@ -17,7 +17,7 @@ const SignOut = () => {
 
   return (
     <DropdownMenuItem onClick={(e) => handleSignOut(e)}>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-1.5">
         {isLoading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
         <span className="text-sm font-medium">
           {isLoading ? "Signing out..." : "Sign out"}

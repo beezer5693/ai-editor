@@ -23,11 +23,11 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
-    --radius: 0rem;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 7%;
+    --background: 0 0% 10%;
     --foreground: 0 0% 98%;
     --card: 0 0% 7%;
     --card-foreground: 0 0% 98%;
@@ -41,10 +41,10 @@
     --muted-foreground: 0 0% 63.9%;
     --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 45.6%;
+    --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
+    --border: 0 0% 19.9%;
+    --input: 0 0% 19.9%;
     --ring: 0 0% 83.1%;
   }
 }
@@ -72,8 +72,9 @@ textarea:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+/* Tip Tap editor placeholder text */
 .tiptap p.is-editor-empty:first-child::before {
-  @apply text-sm text-muted-foreground/75 h-0 float-left cursor-none content-[attr(data-placeholder)];
+  @apply text-sm text-muted-foreground/75 h-0 float-left cursor-text content-[attr(data-placeholder)];
 }
 
 @layer base {

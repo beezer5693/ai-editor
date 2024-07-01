@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
-import { cn } from "@/utils/utils";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

@@ -3,7 +3,7 @@
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/supabase/client";
-import { AuthProvider } from "@/utils/constants";
+import { AuthProvider } from "@/lib/constants";
 import { Provider } from "@supabase/supabase-js";
 
 const DiscordSignIn = () => {

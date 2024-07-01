@@ -1,4 +1,4 @@
-import { Route } from "@/utils/constants";
+import { Route } from "@/lib/constants";
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 

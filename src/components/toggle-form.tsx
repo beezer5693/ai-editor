@@ -1,4 +1,4 @@
-import { FormType, Route } from "@/utils/constants";
+import { FormType, Route } from "@/lib/constants";
 import Link from "next/link";
 
 type Props = {
@@ -9,7 +9,7 @@ const toggle = {
   signup: (
     <>
       Don&apos;t have an account?{" "}
-      <Link href={Route.Signup} className="hover:underline text-primary">
+      <Link href={Route.Signup} className="hover:underline text-foreground">
         Sign up
       </Link>
       .
@@ -18,7 +18,7 @@ const toggle = {
   login: (
     <>
       Already have an account?{" "}
-      <Link href={Route.Login} className="hover:underline text-primary">
+      <Link href={Route.Login} className="hover:underline text-foreground">
         Log in
       </Link>
       .
@@ -28,7 +28,7 @@ const toggle = {
 
 const ToggleForm = ({ formType }: Props) => {
   return (
-    <div className="text-[.85rem] font-medium mt-6 text-center text-muted-foreground">
+    <div className="text-sm font-medium mt-8 text-center text-muted-foreground">
       <p>{formType === FormType.Login ? toggle.signup : toggle.login}</p>
     </div>
   );

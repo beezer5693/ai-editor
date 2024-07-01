@@ -1,4 +1,4 @@
-import { FormType } from "@/utils/constants";
+import { FormType } from "@/lib/constants";
 
 type Props = {
   formType: FormType;
@@ -23,6 +23,14 @@ const formTitles = {
       </>
     ),
   },
+  "forgot-password": {
+    title: "Forgot your password.",
+    subtitle: "Enter your email to reset your password.",
+  },
+  "reset-password": {
+    title: "Reset your password.",
+    subtitle: "Enter your new password below.",
+  },
 };
 
 const AuthFormHeader = ({ formType }: Props) => {
@@ -30,12 +38,10 @@ const AuthFormHeader = ({ formType }: Props) => {
 
   return (
     <div className="text-primary block mb-9">
-      <h1 className="text-3xl font-semibold mb-3">{title}</h1>
-      {
-        <p className="font-semibold max-w-[22ch] text-2xl text-muted-foreground text-balance">
-          {subtitle}
-        </p>
-      }
+      <h1 className="text-2xl font-semibold mb-1">{title}</h1>
+      <p className="font-semibold text-xl text-muted-foreground text-pretty">
+        {subtitle}
+      </p>
     </div>
   );
 };
