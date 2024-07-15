@@ -1,17 +1,25 @@
 "use server";
 
-import { createClient } from "@/supabase/server";
-import { Route } from "@/lib/constants";
+import { lucia } from "@/lib/session/auth";
+import { validateRequest } from "@/lib/session/validate-session";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const signOutAction = async () => {
-  const supabase = createClient();
+  const { session } = await validateRequest();
 
-  const { error } = await supabase.auth.signOut();
-
-  if (error) {
-    throw new Error(error.message);
+  if (!session) {
+    return redirect("/login");
   }
 
-  redirect(Route.Login);
+  await lucia.invalidateSession(session.id);
+
+  const sessionCookie = lucia.createBlankSessionCookie();
+  cookies().set(
+    sessionCookie.name,
+    sessionCookie.value,
+    sessionCookie.attributes
+  );
+
+  return redirect("/login");
 };

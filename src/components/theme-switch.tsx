@@ -21,11 +21,11 @@ type Props = {
 const ThemeIcon = ({ currentTheme }: Props) => {
   switch (currentTheme) {
     case "system":
-      return <Monitor className="h-3 w-3" />;
+      return <Monitor className="size-3" />;
     case "light":
-      return <Sun className="h-3 w-3" />;
+      return <Sun className="size-3" />;
     case "dark":
-      return <Moon className="h-3 w-3" />;
+      return <Moon className="size-3" />;
   }
 };
 

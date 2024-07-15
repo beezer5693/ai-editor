@@ -1,5 +1,5 @@
 import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import * as React from "react";
@@ -158,7 +158,7 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn("text-[.8rem] font-medium text-destructive", className)}
+      className={cn("text-[.8rem] text-destructive", className)}
       {...props}
     >
       {body}

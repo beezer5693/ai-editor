@@ -1,8 +1,19 @@
-import { PropsWithChildren } from "react";
+import { cn } from "@/lib/utils/cn";
+import { ReactNode } from "react";
 
-const PageLayout = ({ children }: PropsWithChildren) => {
+type Props = {
+  className?: string;
+  children: ReactNode;
+};
+
+const PageLayout = ({ className, children }: Props) => {
   return (
-    <main className="h-screen relative flex flex-col items-center justify-center overflow-hidden p-5">
+    <main
+      className={cn(
+        "h-screen relative flex flex-col items-center justify-center overflow-hidden px-5",
+        className
+      )}
+    >
       {children}
     </main>
   );

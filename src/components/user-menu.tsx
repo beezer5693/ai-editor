@@ -6,38 +6,34 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { getUser } from "@/lib/session/auth";
 import SignOut from "./sign-out";
 import ThemeSwitch from "./theme-switch";
-import { createClient } from "@/supabase/server";
 
 const UserMenu = async () => {
-  const supabase = createClient();
+  const user = await getUser();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  console.log(user);
 
   return (
     <div className="w-full flex items-center">
       <DropdownMenu>
         <DropdownMenuTrigger className="cursor-pointer" asChild>
           <Avatar>
-            <AvatarImage src={user?.user_metadata?.avatar_url} />
+            <AvatarImage src={user?.avatar} />
             <AvatarFallback>
-              {user?.email?.charAt(0).toUpperCase()}
+              {user?.username?.charAt(0).toUpperCase()}
             </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="mr-10 w-60">
+        <DropdownMenuContent className="mr-10 w-56">
           <DropdownMenuLabel>
-            <div className="flex flex-col">
-              {user?.user_metadata.full_name && (
-                <p className="text-sm font-semibold">
-                  {user.user_metadata.full_name}
-                </p>
+            <div className="flex flex-col gap-1">
+              {user?.name && (
+                <p className="text-sm font-semibold">{user.name}</p>
               )}
               <p className="text-xs text-primary/80 font-medium">
-                {user?.email}
+                {user?.username}
               </p>
             </div>
           </DropdownMenuLabel>

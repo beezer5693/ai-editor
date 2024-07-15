@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Dashboard() {
   return (
-    <PageLayout>
+    <PageLayout className="bg-neutral-50/70 dark:bg-background">
       <div className="h-full md:px-5 pb-5 flex flex-col border border-red-500 w-full">
         <div className="self-end">
           <UserMenu />

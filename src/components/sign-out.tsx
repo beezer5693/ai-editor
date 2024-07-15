@@ -11,7 +11,9 @@ const SignOut = () => {
   const handleSignOut = async (e: any) => {
     e.preventDefault();
     e.stopPropagation();
+
     setIsLoading(true);
+
     await signOutAction();
   };
 

@@ -37,8 +37,8 @@ const Editor = ({ onChange }: EditorProps) => {
   });
 
   return (
-    <div className="w-full md:max-w-[55%] border rounded-lg">
-      <div className="border-b p-3">
+    <div className="w-full md:max-w-[65%] border rounded-lg bg-white dark:bg-muted/30 shadow-sm">
+      <div className="border-b p-3 bg-muted dark:bg-muted/70">
         {editor && <Toolbar editor={editor} />}
       </div>
       <div className="p-6">
